@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Main from "../Main/Main";
 import {songs} from "../songs"
+import ControlButton from '../ControlButton/ControlButton';
 
 function Layout(){
     return(
@@ -9,7 +10,7 @@ function Layout(){
                 <Header/>
             </div>
             <div>
-                <Main songs={songs}/>
+                <Main songs={songs} />
             </div>
         </div>
     )

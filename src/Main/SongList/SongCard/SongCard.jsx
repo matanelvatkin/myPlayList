@@ -1,5 +1,5 @@
 import "./SongCard.css";
-
+import ControlButton from "../../../ControlButton/ControlButton";
 function SongCard(props){
     return <div className="card">
         <img src="" alt="songImg" className="imgCard" />
@@ -14,6 +14,7 @@ function SongCard(props){
                 {props.timesSong}
             </span>
         </div>
+        <ControlButton/>
     </div>
 }
 
