@@ -1,8 +1,8 @@
 import "./Search.css";
 
-function Search(){
+function Search(props){
     return <div className="search">
-        <input type="text" />
+        <input type="text" onInput={props.filterSearchig} />
     </div>
 } 
 

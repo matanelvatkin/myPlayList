@@ -1,9 +1,11 @@
 import "./ControlButton.css"
+import AddOrRemveToPlaylist from "./AddOrRemveToPlaylist/AddOrRemveToPlaylist"
+import SongControl from "./Songcontrol/SongControl"
+
 function ControlButton(){
     return <div className="ControlButton">
-        <button className="previousSongBuotton">⏮</button>
-        <button className="nextSongBuotton">⏯</button>
-        <button className="playSongBuotton">⏭</button>
+        <SongControl/>
+        <AddOrRemveToPlaylist/>
     </div>
 }
 

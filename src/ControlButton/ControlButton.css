@@ -1,4 +1,5 @@
 .ControlButton{
     display: flex;
+    /* display: inline; */
     float: right;
 }

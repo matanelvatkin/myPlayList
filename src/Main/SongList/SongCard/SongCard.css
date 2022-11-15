@@ -1,21 +1,24 @@
 .card{
     width: 80%;
     height: 6rem;
-    display: flex;
-    flex-direction:row;
     border-radius: 2rem;
     margin-bottom: 5%;
     padding: 5%;
     box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.818);
     background-color: rgba(106, 92, 92, 0.604);
-    align-items: center;
-    justify-items: center;
 }
 .cardDitel{
     margin-left: 5%;
     display: flex;
     flex-direction:column;
     margin-right: 10%;
+    display: inline-block;
+}
+.imgCard{
+    height: 80%;
+    display: inline;
+    float: left;
+    
 }
 .songTime{
     font-size: small;
