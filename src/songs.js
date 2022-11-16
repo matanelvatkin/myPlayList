@@ -1,6 +1,6 @@
 export const songs = [
     {
-      title: "song1",
+      title: "ad matay",
       subtitle: "best song",
       id: "v12",
       thumbnail: "./path/to/some/image",

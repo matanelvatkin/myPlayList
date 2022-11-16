@@ -1,5 +1,8 @@
 .Main{
     margin:5%;
-    box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.426);    
+    width: 90%;
+    height: 90%;
+    box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.426);  
+    border-radius: 50px;  
     background-color: rgba(49, 38, 38, 0.434);
 }

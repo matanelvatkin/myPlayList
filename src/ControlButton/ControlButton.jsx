@@ -5,7 +5,7 @@ import SongControl from "./Songcontrol/SongControl"
 function ControlButton(){
     return <div className="ControlButton">
         <SongControl/>
-        <AddOrRemveToPlaylist/>
+        {/* <AddOrRemveToPlaylist/> */}
     </div>
 }
 

@@ -1,24 +1,30 @@
 .card{
-    width: 80%;
+    display: flex;
+    width: 17rem;
     height: 6rem;
     border-radius: 2rem;
-    margin-bottom: 5%;
-    padding: 5%;
-    box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.818);
-    background-color: rgba(106, 92, 92, 0.604);
+    margin: 1%;
+    margin-top: 2%;
+    padding: 2.5rem;
+    border: 1px solid black;
+    box-shadow: 2.5px 2.5px 2.5px 2.5px rgba(49, 38, 38, 0.818);
+    background-color: rgba(49, 38, 38, 0.682);
 }
 .cardDitel{
-    margin-left: 5%;
+    margin-left: 2rem;
     display: flex;
-    flex-direction:column;
-    margin-right: 10%;
-    display: inline-block;
+    flex-direction: column;
 }
+.disginditel{
+    display: flex;
+    flex-direction: row;
+}
+
 .imgCard{
-    height: 80%;
+    height: 90%;
     display: inline;
-    float: left;
-    
+    border-radius: 10px;
+    border: 1px solid black;
 }
 .songTime{
     font-size: small;
