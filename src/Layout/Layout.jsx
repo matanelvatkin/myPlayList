@@ -1,22 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState ,useRef} from 'react';
 import Header from '../Header/Header';
 import Main from "../Main/Main";
-import {songs} from "../songs"
-// import ControlButton from '../ControlButton/ControlButton';
+import axios from 'axios';
 
 function Layout(){
-    const [searchFilter,setSearchFilter] = useState(true);
-    const onSearch =(e)=>{
-        setSearchFilter(e.target.value)
+    const [searchFilter,setSearchFilter] = useState("אביתר בנאי");
+    const [songs,setSongs] = useState({results:[]})
+    const inputSearchValue = useRef("")
+    const options = {
+    method: 'GET',
+    url: 'https://simple-youtube-search.p.rapidapi.com/search',
+    params: {query: ""+searchFilter, safesearch: 'false'},
+    headers: {
+        'X-RapidAPI-Key': '458302a80bmsh65f83ca14b6e60bp12d077jsnc759f59bdd86',
+        'X-RapidAPI-Host': 'simple-youtube-search.p.rapidapi.com'
     }
-    let filteredSongsList = songs.filter(v=>v.title.includes(searchFilter)||searchFilter===true)
+    };
+    const setNewSearchToApi = ()=>{
+        if(inputSearchValue.currnet != ""){
+            setSearchFilter((inputSearchValue.currnet).trim().replace(" ","+"))
+        }
+    }
+    const getValueFromInputSearch =(e)=>{
+        inputSearchValue.currnet=e.target.value;
+        if(e.key==="Enter"){
+            setNewSearchToApi()
+        }
+    }
+    useEffect(()=>{
+        axios.request(options).then(async(response)=> {
+            console.log(response.data.results);
+            setSongs(response.data)
+        }).catch(function (error) {
+            setSearchFilter({results:[{title:"we coudn't find your search"}]})
+        });
+    },[searchFilter])
+
     return(
         <div>
             <div>
-                <Header filterSearchig = {onSearch}/>
+                <Header getValue = {getValueFromInputSearch} SearchRequset={setNewSearchToApi}/>
             </div>
             <div>
-                <Main songs={filteredSongsList} />
+                <Main songs={songs} />
             </div>
         </div>
     )
