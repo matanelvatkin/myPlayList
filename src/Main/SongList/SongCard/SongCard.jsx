@@ -6,14 +6,14 @@ function SongCard(props){
             <div className="cardDitel">
                 <div>
                     <span className="songName">
-                        {props.title}
+                        {props.title.slice(0,21)}
                     </span><br />
                 </div>
                 <div className="disginditel">
                     <div >
-                        <span className="songCreacteor">
+                        <p className="songCreacteor">
                             {props.artist}
-                        </span> <br />
+                        </p>
                         <span className="songTime">
                             {props.timesSong}
                         </span>

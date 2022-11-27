@@ -21,7 +21,7 @@
 }
 
 .imgCard{
-    height: 90%;
+    height: 4rem;
     display: inline;
     border-radius: 10px;
     border: 1px solid black;
@@ -30,8 +30,9 @@
     font-size: small;
 }
 .songCreacteor{
-    font-size: medium;
+    font-size: 8px;
 }
 .songName{
     font-size: 10px;
+    font-weight: bold;
 }

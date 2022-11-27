@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Main from "../Main/Main";
 import axios from 'axios';
 
+
 function Layout(){
     const [searchFilter,setSearchFilter] = useState("אביתר בנאי");
     const [songs,setSongs] = useState({results:[]})
@@ -28,7 +29,7 @@ function Layout(){
         }
     }
     useEffect(()=>{
-        axios.request(options).then(async(response)=> {
+        axios.request(options).then((response)=> {
             console.log(response.data.results);
             setSongs(response.data)
         }).catch(function (error) {
