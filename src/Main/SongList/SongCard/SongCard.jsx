@@ -19,7 +19,7 @@ function SongCard(props){
                         </span>
                     </div>
                     <div>
-                        <ControlButton/>
+                        <ControlButton id={props.id} previewId = {props.previewId} nextId = {props.nextId}/>
                     </div>
                 </div>
             </div>

@@ -3,10 +3,8 @@ import { Link } from "react-router-dom"
 
 function HomePage() {
   return (
-    <div><div>
-       HomePage
-      </div>
-      
+    <div>
+      <Link to="./login">login</Link>
     </div>
   )
 }

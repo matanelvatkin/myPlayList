@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../App";
 
 export default function LogIn(){
@@ -7,10 +7,12 @@ export default function LogIn(){
     const passwordRef = useRef(null);
     const firstNameRef =useRef(null);
     let tempUser;
+    const navigate = useNavigate()
     const onClickLogin = ()=>{
         tempUser = user.find( (v)=>v.f_name === firstNameRef.current && v.password === passwordRef.current)
         if(tempUser){
             setUser(tempUser)
+            navigate(`../${tempUser.id}/`)
         }
         else{
             console.log("not found");
@@ -22,8 +24,5 @@ export default function LogIn(){
             password: <input type="password" onInput={(e)=>passwordRef.current=e.target.value}/><br />
             <button type="button" onClick={onClickLogin}>login</button>
         </form>
-        <nav>
-            <Link to={`../${user.id}/`}>move on</Link>
-        </nav>
     </div>
 }

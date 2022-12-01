@@ -9,17 +9,17 @@ function Layout(){
     const [songs,setSongs] = useState({results:[]})
     const inputSearchValue = useRef("")
     const options = {
-    method: 'GET',
-    url: 'https://simple-youtube-search.p.rapidapi.com/search',
-    params: {query: ""+searchFilter, safesearch: 'false'},
-    headers: {
-        'X-RapidAPI-Key': '458302a80bmsh65f83ca14b6e60bp12d077jsnc759f59bdd86',
-        'X-RapidAPI-Host': 'simple-youtube-search.p.rapidapi.com'
-    }
+        method: 'GET',
+        url: 'https://simple-youtube-search.p.rapidapi.com/search',
+        params: {query: ""+searchFilter, safesearch: 'false'},
+        headers: {
+            'X-RapidAPI-Key': '458302a80bmsh65f83ca14b6e60bp12d077jsnc759f59bdd86',
+            'X-RapidAPI-Host': 'simple-youtube-search.p.rapidapi.com'
+        }
     };
     const setNewSearchToApi = ()=>{
         if(inputSearchValue.currnet != ""){
-            setSearchFilter((inputSearchValue.currnet).trim().replace(" ","+"))
+            setSearchFilter((inputSearchValue.currnet).trim())
         }
     }
     const getValueFromInputSearch =(e)=>{
