@@ -1,0 +1,15 @@
+.header_home_page{
+    padding-right: 5rem;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 5rem;
+    background-color: rgba(49, 38, 38, 0.434); 
+}
+ul{
+    text-align:right;
+}
+
+li{
+    display: inline;
+    margin-left: 1rem;
+}

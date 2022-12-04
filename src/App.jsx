@@ -20,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/login" element={<LogIn/>} />
+        <Route path="/signup" element={<LogIn/>} />
         <Route path="/:user/*" element={<Layout/>} />
         <Route path="*" element={<div>not found</div>} />
       </Routes>
