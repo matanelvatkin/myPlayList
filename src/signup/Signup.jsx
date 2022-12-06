@@ -1,32 +1,16 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { userContext } from "../App";
-import Signup from "../signup/Signup";
-import "./Login.css";
+import { useNavigate } from "react-router";
 
-export default function LogIn() {
-  const { user, setUser } = useContext(userContext);
-  let tempUser;
-
-  const navigate = useNavigate();
+export default function Signup() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    if (user) {
-      tempUser = user.find(
-        (v) => v.f_name === data.user_name && v.password === data.password
-      );
-    }
-    if (tempUser) {
-      setUser(tempUser);
-      navigate("../" + tempUser.id);
-    }
+    console.log(data);
   };
-
+  const navigate = useNavigate();
   return (
     <div>
       <header className="header_home_page">
@@ -56,32 +40,67 @@ export default function LogIn() {
       </header>
       <div className="logIn">
         <form onSubmit={handleSubmit(onSubmit)}>
-          username:{" "}
+          user name:{" "}
           <input
             type="text"
-            placeholder="userName"
+            placeholder="user name"
             {...register("user_name", { required: "user name required" })}
           />
           <br />
-          {errors.user_name && <p>{errors.user_name.message}</p>}
+          {errors.fName && <p>{errors.user_name.message}</p>}
+          first name:{" "}
+          <input
+            type="text"
+            placeholder="first name"
+            {...register("fName", { required: "first name required" })}
+          />
+          <br />
+          {errors.fName && <p>{errors.fName.message}</p>}
+          last name:{" "}
+          <input
+            type="text"
+            placeholder="last name"
+            {...register("lName", { required: "last name required" })}
+          />
+          <br />
+          {errors.lName && <p>{errors.lName.message}</p>}
+          email:{" "}
+          <input
+            type="text"
+            placeholder="samthing@samthing.samthing"
+            {...register("email", {
+              required: "email required",
+              pattern: {
+                value:
+                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/,
+                message: "email not correct",
+              },
+            })}
+          />
+          <br />
+          {errors.email && <p>{errors.email.message}</p>}
           password:{" "}
           <input
             type="password"
             placeholder="Password"
+            autoComplete="password"
             {...register("password", {
               required: "password required",
+              minLength: {
+                value: 8,
+                message: "password length must be more then 8 charceter",
+              },
+              pattern: {
+                value:
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$/%^&*])(?=.{8,})/,
+                message:
+                  "length: 8+ , one cappitol letter ,one small letter, one number,one spacel letter",
+              },
             })}
           />
           <br />
           {errors.password && <p>{errors.password.message}</p>}
-          <input className="inputSubmit" type="submit" value="login" />
-          <input
-            className="inputSubmit"
-            style={{ marginLeft: "8rem" }}
-            type="button"
-            value="signup"
-            onClick={() => navigate("../signup")}
-          />
+          <input className="inputSubmit" type="submit" value="signup" />
         </form>
       </div>
     </div>

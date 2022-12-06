@@ -1,15 +1,23 @@
-.header_home_page{
-    padding-right: 5rem;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin-bottom: 5rem;
-    background-color: rgba(49, 38, 38, 0.434); 
+.header_home_page {
+  padding-right: 5rem;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 5rem;
+  background-color: rgba(110, 204, 175, 0.3);
 }
-ul{
-    text-align:right;
+ul {
+  text-align: right;
 }
 
-li{
-    display: inline;
-    margin-left: 1rem;
+li {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.input_header {
+  background-color: rgba(243, 236, 176, 0.7);
+}
+.input_header:hover {
+  background-color: rgba(243, 236, 176, 0.9);
+  border: none;
 }

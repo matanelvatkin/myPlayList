@@ -1,3 +1,7 @@
-body{
-    background-color: rgba(49, 38, 38, 0.725);
+body {
+  background-color: rgb(52, 77, 103);
+}
+input {
+  margin-top: 1rem;
+  background: none;
 }
