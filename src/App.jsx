@@ -13,11 +13,22 @@ export const PopupContext = createContext(null);
 
 function App() {
   const [user, setUser] = useState(users);
-  const [videoId, setVideoId] = useState(null);
+  const [videosId, setVidesoId] = useState([]);
+  const [isPause, setisPause] = useState(false);
+  const [numberOfSong, setNumberOfSong] = useState(null);
 
   return (
     <userContext.Provider value={{ user, setUser }}>
-      <PopupContext.Provider value={{ videoId, setVideoId }}>
+      <PopupContext.Provider
+        value={{
+          videosId,
+          setVidesoId,
+          isPause,
+          setisPause,
+          numberOfSong,
+          setNumberOfSong,
+        }}
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LogIn />} />

@@ -1,38 +1,41 @@
-.card{
-    display: flex;
-    width: 17rem;
-    height: 6rem;
-    border-radius: 2rem;
-    margin: 1%;
-    margin-top: 2%;
-    padding: 2.5rem;
-    border: 1px solid black;
-    box-shadow: 2.5px 2.5px 2.5px 2.5px rgba(49, 38, 38, 0.818);
-    background-color: rgba(49, 38, 38, 0.682);
+.card {
+  display: flex;
+  width: 17rem;
+  height: 6rem;
+  border-radius: 2rem;
+  margin: 1%;
+  margin-top: 2%;
+  padding: 2.5rem;
+  border: 1px solid black;
+  box-shadow: 2.5px 2.5px 2.5px 2.5px rgba(49, 38, 38, 0.818);
+  background-color: rgba(243, 236, 176, 0.682);
 }
-.cardDitel{
-    margin-left: 2rem;
-    display: flex;
-    flex-direction: column;
+.card:hover {
+  background-color: rgba(243, 236, 176, 0.8);
 }
-.disginditel{
-    display: flex;
-    flex-direction: row;
+.cardDitel {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.disginditel {
+  display: flex;
+  flex-direction: row;
 }
 
-.imgCard{
-    height: 4rem;
-    display: inline;
-    border-radius: 10px;
-    border: 1px solid black;
+.imgCard {
+  height: 4rem;
+  display: inline;
+  border-radius: 10px;
+  border: 1px solid black;
 }
-.songTime{
-    font-size: small;
+.songTime {
+  font-size: small;
 }
-.songCreacteor{
-    font-size: 8px;
+.songCreacteor {
+  font-size: 8px;
 }
-.songName{
-    font-size: 10px;
-    font-weight: bold;
+.songName {
+  font-size: 10px;
+  font-weight: bold;
 }

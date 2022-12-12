@@ -1,5 +1,43 @@
-.PopUp{
-    position: fixed;
-    bottom:0;
-    left: 20%;
+.PopUp {
+  width: 60vw;
+  position: fixed;
+  bottom: 0;
+  margin-left: 2rem;
+  max-height: 12rem;
+  max-width: 1rem;
+}
+
+.PopUpShowing {
+  border-radius: 2rem;
+  max-height: 12rem;
+}
+
+.youtube {
+  width: 70vw;
+}
+
+.videoController {
+  visibility: hidden;
+  margin: 1rem;
+  bottom: 0;
+  left: 0;
+  max-width: 1rem;
+}
+
+.videoControllerShowing {
+  visibility: visible;
+}
+
+.divVideoControl {
+  display: flex;
+}
+
+.videoButtonControl {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(110, 204, 175);
+  box-shadow: 2.5px 2.5px 2.5px 2.5px rgba(49, 38, 38, 0.818);
 }

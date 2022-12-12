@@ -1,12 +1,14 @@
-import "./ControlButton.css"
-import AddOrRemveToPlaylist from "./AddOrRemveToPlaylist/AddOrRemveToPlaylist"
-import SongControl from "./Songcontrol/SongControl"
+import "./ControlButton.css";
+import AddOrRemveToPlaylist from "./AddOrRemveToPlaylist/AddOrRemveToPlaylist";
+import SongControl from "./Songcontrol/SongControl";
 
-function ControlButton({id,nextId,previewId}){
-    return <div className="ControlButton">
-        <SongControl id={id} nextId ={nextId} previewId={previewId}/>
-        {/* <AddOrRemveToPlaylist/> */}
+function ControlButton({ keys }) {
+  return (
+    <div className="ControlButton">
+      <SongControl keys={keys} />
+      {/* <AddOrRemveToPlaylist/> */}
     </div>
+  );
 }
 
-export default ControlButton
+export default ControlButton;

@@ -1,8 +1,8 @@
-.Main{
-    margin:5%;
-    width: 90%;
-    height: 90%;
-    box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.426);  
-    border-radius: 50px;  
-    background-color: rgba(49, 38, 38, 0.434);
+.Main {
+  margin: 5%;
+  width: 90%;
+  height: 90%;
+  box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.426);
+  border-radius: 50px;
+  background-color: rgba(110, 204, 175, 0.5);
 }
