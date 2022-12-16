@@ -36,7 +36,7 @@ function PopUp() {
             <input
               type="button"
               value="show video"
-              onClick={() => (show ? setShow(false) : setShow(true))}
+              onClick={() => setShow(!show)}
             />
           </span>
           <div

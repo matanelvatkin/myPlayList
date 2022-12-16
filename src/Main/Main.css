@@ -1,8 +1,14 @@
 .Main {
-  margin: 5%;
+  margin-top: 4rem;
+  margin-left: 3rem;
+  margin-bottom: 4rem;
   width: 90%;
   height: 90%;
   box-shadow: 5px 5px 5px 5px rgba(49, 38, 38, 0.426);
   border-radius: 50px;
   background-color: rgba(110, 204, 175, 0.5);
+}
+
+.MainClose {
+  width: 75%;
 }

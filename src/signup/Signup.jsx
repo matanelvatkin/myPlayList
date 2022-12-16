@@ -1,14 +1,25 @@
+import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 export default function Signup() {
+  const [signupSecsess, setSignupSecsess] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    axios
+      .post("/register", data)
+      .then((response) => {
+        console.log(response.data);
+        setSignupSecsess(true);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
   const navigate = useNavigate();
   return (
@@ -39,69 +50,73 @@ export default function Signup() {
         </ul>
       </header>
       <div className="logIn">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          user name:{" "}
-          <input
-            type="text"
-            placeholder="user name"
-            {...register("user_name", { required: "user name required" })}
-          />
-          <br />
-          {errors.fName && <p>{errors.user_name.message}</p>}
-          first name:{" "}
-          <input
-            type="text"
-            placeholder="first name"
-            {...register("fName", { required: "first name required" })}
-          />
-          <br />
-          {errors.fName && <p>{errors.fName.message}</p>}
-          last name:{" "}
-          <input
-            type="text"
-            placeholder="last name"
-            {...register("lName", { required: "last name required" })}
-          />
-          <br />
-          {errors.lName && <p>{errors.lName.message}</p>}
-          email:{" "}
-          <input
-            type="text"
-            placeholder="samthing@samthing.samthing"
-            {...register("email", {
-              required: "email required",
-              pattern: {
-                value:
-                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/,
-                message: "email not correct",
-              },
-            })}
-          />
-          <br />
-          {errors.email && <p>{errors.email.message}</p>}
-          password:{" "}
-          <input
-            type="password"
-            placeholder="Password"
-            autoComplete="password"
-            {...register("password", {
-              required: "password required",
-              minLength: {
-                value: 8,
-                message: "password length must be more then 8 charceter",
-              },
-              pattern: {
-                value:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$/%^&*])(?=.{8,})/,
-                message:
-                  "length: 8+ , one cappitol letter ,one small letter, one number,one spacel letter",
-              },
-            })}
-          />
-          <br />
-          {errors.password && <p>{errors.password.message}</p>}
-          <input className="inputSubmit" type="submit" value="signup" />
-        </form>
+        {signupSecsess ? (
+          <div>
+            <p>signup secsess please login</p>
+            <input
+              type="button"
+              value="login"
+              onClick={() => navigate("../login")}
+            />
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {errors.fName && <p>{errors.user_name.message}</p>}
+            first name:{" "}
+            <input
+              type="text"
+              placeholder="first name"
+              {...register("fName", { required: "first name required" })}
+            />
+            <br />
+            {errors.fName && <p>{errors.fName.message}</p>}
+            last name:{" "}
+            <input
+              type="text"
+              placeholder="last name"
+              {...register("lName", { required: "last name required" })}
+            />
+            <br />
+            {errors.lName && <p>{errors.lName.message}</p>}
+            email:{" "}
+            <input
+              type="text"
+              placeholder="samthing@samthing.samthing"
+              {...register("email", {
+                required: "email required",
+                pattern: {
+                  value:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/,
+                  message: "email not correct",
+                },
+              })}
+            />
+            <br />
+            {errors.email && <p>{errors.email.message}</p>}
+            password:{" "}
+            <input
+              type="password"
+              placeholder="Password"
+              autoComplete="password"
+              {...register("password", {
+                required: "password required",
+                minLength: {
+                  value: 8,
+                  message: "password length must be more then 8 charceter",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$/%^&*])(?=.{8,})/,
+                  message:
+                    "length: 8+ , one cappitol letter ,one small letter, one number,one spacel letter",
+                },
+              })}
+            />
+            <br />
+            {errors.password && <p>{errors.password.message}</p>}
+            <input className="inputSubmit" type="submit" value="signup" />
+          </form>
+        )}
       </div>
     </div>
   );

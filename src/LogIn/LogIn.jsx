@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -15,16 +16,18 @@ export default function LogIn() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    if (user) {
-      tempUser = user.find(
-        (v) => v.f_name === data.user_name && v.password === data.password
-      );
-    }
-    if (tempUser) {
-      setUser(tempUser);
-      navigate("../" + tempUser.id);
-    }
+    axios
+      .post("/login", { email: data.email, password: data.password })
+      .then((response) => {
+        localStorage.setItem("authorization", "Bearer " + response.data.token);
+        setUser(response.data.user);
+        navigate("../user");
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
   };
 
   return (
@@ -56,11 +59,11 @@ export default function LogIn() {
       </header>
       <div className="logIn">
         <form onSubmit={handleSubmit(onSubmit)}>
-          username:{" "}
+          email:{" "}
           <input
             type="text"
-            placeholder="userName"
-            {...register("user_name", { required: "user name required" })}
+            placeholder="email"
+            {...register("email", { required: "email required" })}
           />
           <br />
           {errors.user_name && <p>{errors.user_name.message}</p>}

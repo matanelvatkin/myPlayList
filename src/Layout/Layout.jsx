@@ -3,12 +3,16 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import axios from "axios";
 import { PopupContext } from "../App";
+import { useNavigate } from "react-router";
+import ProfileSidebar from "../Main/ProfileSidebar/ProfileSidebar";
 
 function Layout() {
   const { setNumberOfSong, setVidesoId } = useContext(PopupContext);
   const [searchFilter, setSearchFilter] = useState("אביתר בנאי");
   const [songs, setSongs] = useState({ results: [] });
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const inputSearchValue = useRef("");
+  const navigate = useNavigate();
   const options = {
     method: "GET",
     url: "https://simple-youtube-search.p.rapidapi.com/search",
@@ -18,11 +22,11 @@ function Layout() {
       "X-RapidAPI-Host": "simple-youtube-search.p.rapidapi.com",
     },
   };
-
   const setNewSearchToApi = () => {
     if (inputSearchValue.currnet.value != "") {
       setSearchFilter(inputSearchValue.currnet.value.trim());
       inputSearchValue.currnet.value = "";
+      navigate("./search");
     }
   };
   const getValueFromInputSearch = (e) => {
@@ -53,10 +57,13 @@ function Layout() {
         <Header
           getValue={getValueFromInputSearch}
           SearchRequset={setNewSearchToApi}
+          setOpenPrifile={setIsProfileOpen}
+          openPrifile={isProfileOpen}
         />
       </div>
-      <div>
-        <Main songs={songs} />{" "}
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <Main songs={songs} openProfile={isProfileOpen} />{" "}
+        {isProfileOpen ? <ProfileSidebar /> : null}
       </div>
     </div>
   );

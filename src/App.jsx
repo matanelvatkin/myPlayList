@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/:user/*" element={<Layout />} />
+          <Route path="/user/*" element={<Layout />} />
           <Route path="*" element={<div>not found</div>} />
         </Routes>
         <PopUp />
